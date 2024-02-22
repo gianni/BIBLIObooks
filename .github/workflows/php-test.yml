@@ -34,7 +34,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install PHP versions
-        working-directory: ./src
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
