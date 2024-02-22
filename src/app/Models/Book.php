@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Book extends Model
@@ -16,10 +15,10 @@ class Book extends Model
         'title',
         'author',
         'published_at',
-        'isbn'
+        'isbn',
     ];
 
     protected $casts = [
-        'published_at' => 'date'
+        'published_at' => 'date',
     ];
 }

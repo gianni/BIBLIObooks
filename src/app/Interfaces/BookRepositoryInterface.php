@@ -13,5 +13,4 @@ interface BookRepositoryInterface
     public function delete(int $id);
 
     public function update(int $id, array $data);
-
 }
