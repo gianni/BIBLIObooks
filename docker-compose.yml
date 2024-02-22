@@ -1,0 +1,73 @@
+version: '3.4'
+
+services:
+  bibliobooks_florence:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    container_name: bibliobooks_florence
+    volumes:
+      - ./src:/var/www/html
+      - ./docker/.env_florence:/var/www/html/.env
+      - ./docker/apache/sites-enabled/bibliobooks_florence.conf:/etc/apache2/sites-available/000-default.conf
+    working_dir: /var/www/html
+    ports:
+      - "8001:80"
+    depends_on:
+      - bibliobooks_db_florence
+    networks:
+      - bibliobooks
+
+  bibliobooks_milan:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    container_name: bibliobooks_milan
+    volumes:
+      - ./src:/var/www/html
+      - ./docker/.env_milan:/var/www/html/.env
+      - ./docker/apache/sites-enabled/bibliobooks_milan.conf:/etc/apache2/sites-available/000-default.conf
+    working_dir: /var/www/html
+    ports:
+      - "8002:80"
+    depends_on:
+      - bibliobooks_db_milan
+    networks:
+      - bibliobooks
+
+  bibliobooks_db_florence:
+    image: mariadb:10.4
+    container_name: bibliobooks_db_florence
+    restart: unless-stopped
+    volumes:
+      - biblio-data-florence:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: biblioflorence
+      MYSQL_DATABASE: biblio_florence
+    ports:
+      - "8016:3306"
+    networks:
+      - bibliobooks
+    
+
+  bibliobooks_db_milan:
+    image: mariadb:10.4
+    container_name: bibliobooks_db_milan
+    restart: unless-stopped
+    volumes:
+      - biblio-data-milan:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: bibliomilan
+      MYSQL_DATABASE: biblio_milan
+    ports:
+      - "8026:3306"
+    networks:
+      - bibliobooks
+
+volumes:
+  biblio-data-florence:
+  biblio-data-milan:
+
+networks:
+  bibliobooks:
+    name: bibliobooks
