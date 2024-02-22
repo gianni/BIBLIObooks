@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Http\Requests\BookDestroyRequest;
 use App\Http\Requests\BookStoreRequest;
 use App\Http\Requests\BookUpdateRequest;
 use App\Http\Resources\BookCollection;
@@ -30,7 +28,7 @@ class BookController extends Controller
             'title' => $request->title,
             'author' => $request->author,
             'published_at' => $request->published_at,
-            'isbn' => $request->isbn
+            'isbn' => $request->isbn,
         ]);
 
         return new BookResource($bookModel);

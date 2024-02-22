@@ -6,7 +6,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class BookStoreRequest extends FormRequest
 {
-
     public function authorize(): bool
     {
         return true;
@@ -20,7 +19,7 @@ class BookStoreRequest extends FormRequest
             'title' => $requiredString,
             'author' => $requiredString,
             'published_at' => 'required|date_format:Y-m-d',
-            'isbn' => 'required|string|max:13|min:13'
+            'isbn' => 'required|string|max:13|min:13',
         ];
     }
 }
