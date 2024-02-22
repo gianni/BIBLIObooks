@@ -6,7 +6,11 @@ RUN apt-get update && apt-get install -y \
     git
 
 # Clear cache
-# RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Apache modules
+RUN a2enmod ssl
+RUN a2enmod rewrite
 
 # Install php-mysql driver
 RUN docker-php-ext-install mysqli pdo pdo_mysql

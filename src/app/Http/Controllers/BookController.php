@@ -3,14 +3,12 @@
 namespace App\Http\Controllers;
 
 
-use App\Http\Requests\DestroyTicketRequest;
-use App\Http\Requests\ListTicketRequest;
-use App\Http\Requests\ShowTicketRequest;
-use App\Http\Requests\StoreTicketRequest;
-use App\Http\Requests\UpdateTicketRequest;
-use App\Http\Resources\TicketCollection;
-use App\Http\Resources\TicketResource;
-use App\Interfaces\Repositories\TicketRepositoryInterface;
+use App\Http\Requests\BookDestroyRequest;
+use App\Http\Requests\BookStoreRequest;
+use App\Http\Requests\BookUpdateRequest;
+use App\Http\Resources\BookCollection;
+use App\Http\Resources\BookResource;
+use App\Interfaces\BookRepositoryInterface;
 
 class BookController extends Controller
 {
@@ -21,7 +19,7 @@ class BookController extends Controller
         $this->bookRepository = $bookRepository;
     }
 
-    public function list()
+    public function index()
     {
         return new BookCollection($this->bookRepository->all());
     }
@@ -38,7 +36,7 @@ class BookController extends Controller
         return new BookResource($bookModel);
     }
 
-    public function show(BookShowRequest $request, int $id)
+    public function show(int $id)
     {
         $book = $this->bookRepository->find($id);
         abort_if(! $book, 404);
@@ -60,7 +58,7 @@ class BookController extends Controller
         return new BookResource($bookModel);
     }
 
-    public function delete(BookDestroyRequest $request, int $id)
+    public function delete(int $id)
     {
 
         $book = $this->bookRepository->find($id);
