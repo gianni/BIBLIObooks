@@ -89,7 +89,7 @@ jobs:
         run: |
           php artisan key:generate
           php artisan migrate
-          vendor/bin/pest
+          php artisan test
 
       - name: Run Pint
         working-directory: ./src
