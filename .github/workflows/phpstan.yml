@@ -16,7 +16,9 @@ jobs:
           php-version: '8.2'
 
       - name: Install Dependencies
+        working-directory: ./src
         run: composer install
 
       - name: Run PHPStan
+        working-directory: ./src
         run: vendor/bin/phpstan analyze app
