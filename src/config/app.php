@@ -17,6 +17,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'bibliobooks_url' => env('BIBLIOBOOKS_URL'),
 
     /*
     |--------------------------------------------------------------------------

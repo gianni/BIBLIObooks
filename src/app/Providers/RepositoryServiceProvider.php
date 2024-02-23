@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use App\Interfaces\BookRepositoryInterface;
-use App\Repositories\BookRepository;
 use App\Interfaces\ReservationRepositoryInterface;
+use App\Repositories\BookRepository;
 use App\Repositories\ReservationRepository;
 use Illuminate\Support\ServiceProvider;
 

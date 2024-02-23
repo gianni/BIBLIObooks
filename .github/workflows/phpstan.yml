@@ -21,4 +21,4 @@ jobs:
 
       - name: Run PHPStan
         working-directory: ./src
-        run: vendor/bin/phpstan analyze app
+        run: vendor/bin/phpstan analyze app --memory-limit=256M

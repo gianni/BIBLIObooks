@@ -11,8 +11,8 @@ return new class extends Migration
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
             $table->string('requester', 255);
-            $table->date('date_from');
-            $table->date('date_to');
+            $table->datetime('date_from');
+            $table->datetime('date_to');
             $table->integer('book_id');
 
             $table->timestamps();

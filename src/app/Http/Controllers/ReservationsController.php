@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ReservationStoreRequest;
-use App\Http\Requests\ReservationUpdateRequest;
 use App\Http\Resources\ReservationCollection;
 use App\Http\Resources\ReservationResource;
 use App\Interfaces\ReservationRepositoryInterface;
@@ -33,5 +32,4 @@ class ReservationsController extends Controller
 
         return new ReservationResource($reservationModel);
     }
-
 }

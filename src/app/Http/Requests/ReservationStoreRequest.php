@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use App\Rules\DateRangeNotOverlap;
+use Illuminate\Foundation\Http\FormRequest;
 
 class ReservationStoreRequest extends FormRequest
 {
@@ -18,13 +18,13 @@ class ReservationStoreRequest extends FormRequest
 
         return [
             'requester' => $requiredString,
-            'date_from' => 'required|date_format:Y-m-d',
+            'date_from' => 'required|date_format:Y-m-d H:i:s|before_or_equal:date_to',
             'date_to' => [
                 'required',
-                'date_format:Y-m-d',
+                'date_format:Y-m-d H:i:s',
                 'after_or_equal:date_from',
-                new DateRangeNotOverlap
-                ],
+                new DateRangeNotOverlap,
+            ],
             'book_id' => 'required|integer',
         ];
     }
