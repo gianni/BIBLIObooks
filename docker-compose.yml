@@ -11,6 +11,7 @@ services:
       - ./docker/.env_florence:/var/www/html/.env
       - ./docker/apache/sites-enabled/bibliobooks_florence.conf:/etc/apache2/sites-available/000-default.conf
     working_dir: /var/www/html
+    command: bash -c "composer install && php artisan key:generate && php artisan migrate && php artisan db:seed && chown -R www-data:www-data storage bootstrap"
     ports:
       - "8001:80"
     depends_on:
@@ -28,6 +29,7 @@ services:
       - ./docker/.env_milan:/var/www/html/.env
       - ./docker/apache/sites-enabled/bibliobooks_milan.conf:/etc/apache2/sites-available/000-default.conf
     working_dir: /var/www/html
+    command: bash -c "composer install && php artisan key:generate && php artisan migrate && php artisan db:seed && chown -R www-data:www-data storage bootstrap"
     ports:
       - "8002:80"
     depends_on:
