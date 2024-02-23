@@ -8,7 +8,7 @@ use App\Http\Resources\BookCollection;
 use App\Http\Resources\BookResource;
 use App\Interfaces\BookRepositoryInterface;
 
-class BookController extends Controller
+class BooksController extends Controller
 {
     private BookRepositoryInterface $bookRepository;
 
