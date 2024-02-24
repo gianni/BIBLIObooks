@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Rules\DateRangeNotOverlap;
 use Illuminate\Foundation\Http\FormRequest;
+use App\Models\Reservation;
 
 class ReservationStoreRequest extends FormRequest
 {
@@ -23,7 +24,7 @@ class ReservationStoreRequest extends FormRequest
                 'required',
                 'date_format:Y-m-d H:i:s',
                 'after_or_equal:date_from',
-                new DateRangeNotOverlap,
+                new DateRangeNotOverlap(new Reservation),
             ],
             'book_id' => 'required|integer',
         ];

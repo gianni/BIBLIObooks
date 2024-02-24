@@ -15,10 +15,15 @@ class DateRangeNotOverlap implements DataAwareRule, ValidationRule
      * @param  \Closure(string): \Illuminate\Translation\PotentiallyTranslatedString  $fail
      */
     protected $data = [];
+    protected $reservationModel;
+
+    public function __construct($reservationModel = Reservation::class) {
+        $this->reservationModel = $reservationModel;
+    }
 
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        $overlap = Reservation::where(function ($query) {
+        $overlap = $this->reservationModel->where(function ($query) {
             $query->where('date_to', '>=', $this->data['date_from'])
                 ->where('date_from', '<=', $this->data['date_to'])
                 ->where('book_id', $this->data['book_id']);
