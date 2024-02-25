@@ -17,6 +17,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'bibliobooks_url' => env('BIBLIOBOOKS_URL'),
 
     /*
     |--------------------------------------------------------------------------
@@ -169,6 +170,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
+        App\Providers\CustomValidationServiceProvider::class,
     ])->toArray(),
 
     /*

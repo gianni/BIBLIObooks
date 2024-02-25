@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\BookController;
+use App\Http\Controllers\BooksController;
+use App\Http\Controllers\RequestsController;
+use App\Http\Controllers\ReservationsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,10 +21,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::controller(BookController::class)->group(function () {
+Route::controller(BooksController::class)->group(function () {
     Route::get('books', 'index');
     Route::get('books/{id}', 'show');
     Route::post('books', 'store');
     Route::put('books/{id}', 'update');
     Route::delete('books/{id}', 'delete');
+});
+
+Route::controller(ReservationsController::class)->group(function () {
+    Route::get('reservations', 'index');
+    Route::post('reservations', 'store');
+});
+
+Route::controller(RequestsController::class)->group(function () {
+    Route::get('requests/reservations/valid', 'valid');
+    Route::get('requests/reservations/not-valid', 'notValid');
 });
