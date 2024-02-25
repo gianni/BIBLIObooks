@@ -56,14 +56,28 @@ OpenAPI (Swagger) documentation generator for Laravel.
    docker-compose up -d
    ```
 
-4. Point the browser to the first "Biblio" (Florence) API documentation
+4. Execute Init script for bibliobooks_florence application:
+
+   ```bash
+   docker exec -it bibliobooks_florence ./init.sh
+   ```
+
+5. Execute Init script for bibliobooks_milan application:
+
+   ```bash
+   docker exec -it bibliobooks_milan ./init.sh
+   ```
+
+6. Point the browser to the first "Biblio" (Florence) API documentation
    
     ```bash
     http://localhost:8001/docs/api
     ```
 
-5. Point the browser to the second "Biblio" (Milan) API documentation
+7. Point the browser to the second "Biblio" (Milan) API documentation
    
     ```bash
     http://localhost:8002/docs/api
     ```
+
+8. Play with the RESTful Api to explore books available in each library and simulate a reservation of a book from a library to another.
