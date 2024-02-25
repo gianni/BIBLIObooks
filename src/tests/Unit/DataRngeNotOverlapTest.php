@@ -1,8 +1,7 @@
 <?php
 
-use App\Rules\DateRangeNotOverlap;
 use App\Models\Reservation;
-use Illuminate\Validation\ValidationException;
+use App\Rules\DateRangeNotOverlap;
 use Tests\TestCase;
 
 uses(TestCase::class);
@@ -41,9 +40,9 @@ it('not passes when there is overlap', function () {
     $reservation->shouldReceive('where')->once()->andReturnSelf();
     $reservation->shouldReceive('exists')->once()->andReturnTrue();
 
-    try{
+    try {
         $validator->validated();
-    } catch(Exception $e){
+    } catch (Exception $e) {
         expect($e->getMessage())->toBe('The reservation period overlaps with a previous one.');
     }
 

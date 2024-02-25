@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Reservation;
 use App\Rules\DateRangeNotOverlap;
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Reservation;
 
 class ReservationStoreRequest extends FormRequest
 {

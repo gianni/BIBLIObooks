@@ -14,7 +14,7 @@ it('creates and soft deletes a reservation', function () {
             'requester' => 'biblio x',
             'date_from' => '2024-03-01',
             'date_to' => '2024-03-10',
-            'book_id' => 1
+            'book_id' => 1,
         ]
     );
 

@@ -31,7 +31,7 @@ class Reservation extends Model
 
     public function overlapped($data): bool
     {
-        return $this->where(function ($query) use($data) {
+        return $this->where(function ($query) use ($data) {
             $query->where('date_to', '>=', $data['date_from'])
                 ->where('date_from', '<=', $data['date_to'])
                 ->where('book_id', $data['book_id']);

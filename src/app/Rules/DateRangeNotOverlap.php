@@ -15,9 +15,11 @@ class DateRangeNotOverlap implements DataAwareRule, ValidationRule
      * @param  \Closure(string): \Illuminate\Translation\PotentiallyTranslatedString  $fail
      */
     protected $data = [];
+
     protected $reservationModel;
 
-    public function __construct($reservationModel = Reservation::class) {
+    public function __construct($reservationModel = Reservation::class)
+    {
         $this->reservationModel = $reservationModel;
     }
 

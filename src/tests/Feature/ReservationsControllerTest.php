@@ -20,10 +20,10 @@ describe('Reservations Controller', function () {
 
         // act
         Reservation::create([
-            'requester'=>'biblio x',
-            'date_from'=>'2024-03-01',
-            'date_to'=>'2024-03-10',
-            'book_id'=> $book->id,
+            'requester' => 'biblio x',
+            'date_from' => '2024-03-01',
+            'date_to' => '2024-03-10',
+            'book_id' => $book->id,
         ]);
 
         $jsonResponse = $this->getJson('/api/reservations')
@@ -50,13 +50,12 @@ describe('Reservations Controller', function () {
             'date_to' => '2024-03-10 12:00:00',
             'book_id' => $book->id,
         ])
-        ->assertStatus(201)
-        ->assertJsonPath('requester', 'biblio x')
-        ->assertJsonPath('date_from', '2024-03-01 12:00:00')
-        ->assertJsonPath('date_to', '2024-03-10 12:00:00')
-        ->assertJsonPath('book.title', $book->title);
+            ->assertStatus(201)
+            ->assertJsonPath('requester', 'biblio x')
+            ->assertJsonPath('date_from', '2024-03-01 12:00:00')
+            ->assertJsonPath('date_to', '2024-03-10 12:00:00')
+            ->assertJsonPath('book.title', $book->title);
 
-        ;
     });
 
     test('a library manager cannot create a new reservation when dates are not valid', function () {
@@ -76,11 +75,11 @@ describe('Reservations Controller', function () {
             'date_to' => '2024-03-10 12:00:00',
             'book_id' => $book->id,
         ])
-        ->assertStatus(422)
-        ->assertJsonPath('errors', [
-            'date_from' => ['The date from field must be a date before or equal to date to.'],
-            'date_to' => ['The date to field must be a date after or equal to date from.'],
-        ]);
+            ->assertStatus(422)
+            ->assertJsonPath('errors', [
+                'date_from' => ['The date from field must be a date before or equal to date to.'],
+                'date_to' => ['The date to field must be a date after or equal to date from.'],
+            ]);
     });
 
     test('a library manager cannot create a new reservation when dates for a book overlap other reservations and dates', function () {
@@ -94,10 +93,10 @@ describe('Reservations Controller', function () {
         ]);
 
         $reservation = Reservation::create([
-            'requester'=>'biblio x',
-            'date_from'=>'2024-03-01 12:00:00',
-            'date_to'=>'2024-03-10 12:00:00',
-            'book_id'=> $book->id,
+            'requester' => 'biblio x',
+            'date_from' => '2024-03-01 12:00:00',
+            'date_to' => '2024-03-10 12:00:00',
+            'book_id' => $book->id,
         ]);
 
         //act & assert
@@ -107,10 +106,10 @@ describe('Reservations Controller', function () {
             'date_to' => '2024-03-20 12:00:00',
             'book_id' => $book->id,
         ])
-        ->assertStatus(422)
-        ->assertJsonPath('errors', [
-            'date_to' => ['The reservation period overlaps with a previous one.'],
-        ]);
+            ->assertStatus(422)
+            ->assertJsonPath('errors', [
+                'date_to' => ['The reservation period overlaps with a previous one.'],
+            ]);
     });
 
 });

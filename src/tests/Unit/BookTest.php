@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Book;
-use App\Models\Reservation;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Tests\TestCase;
 
