@@ -21,16 +21,8 @@ class RequestsController extends Controller
             'book_id' => 1,
         ]);
 
-        if ($response->successful()) {
-            $data = $response->json();
+        return response()->json($response->json());
 
-            return response()->json($data);
-        } else {
-            return response()->json([
-                'error' => 'API request failed',
-                'response' => $response->json(),
-            ], $response->status());
-        }
     }
 
     public function notValid()
@@ -44,15 +36,9 @@ class RequestsController extends Controller
             'book_id' => 1,
         ]);
 
-        if ($response->successful()) {
-            $data = $response->json();
-
-            return response()->json($data);
-        } else {
-            return response()->json([
-                'error' => 'API request failed',
-                'response' => $response->json(),
-            ], $response->status());
-        }
+        return response()->json([
+            'error' => 'API request failed',
+            'response' => $response->json(),
+        ], $response->status());
     }
 }
