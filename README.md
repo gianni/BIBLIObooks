@@ -5,8 +5,8 @@ Each project represents an independent instance of a library, allowing users to 
 The communication between the two systems is facilitated through a RESTful API.
 
 [![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-enabled-brightgreen)](https://github.com/features/actions)
-[![PHP Test](https://github.com/gianni/https://github.com/gianni/BIBLIObooks/actions/workflows/php-test.yml/badge.svg)](https://github.com/gianni/https://github.com/gianni/BIBLIObooks/actions/workflows/php-test.yml)
-[![PHPStan](https://github.com/gianni/https://github.com/gianni/BIBLIObooks/actions/workflows/phpstan.yml/badge.svg)](https://github.com/gianni/https://github.com/gianni/BIBLIObooks/actions/workflows/phpstan.yml)
+[![PHP Test](https://github.com/gianni/BIBLIObooks/actions/workflows/php-test.yml/badge.svg)](https://github.com/gianni/BIBLIObooks/actions/workflows/php-test.yml)
+[![PHPStan](https://github.com/gianni/BIBLIObooks/actions/workflows/phpstan.yml/badge.svg)](https://github.com/gianni/BIBLIObooks/actions/workflows/phpstan.yml)
 
 ## Technologies
 
