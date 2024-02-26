@@ -1,7 +1,7 @@
 # BIBLIObooks
 
-The "BIBLIObooks" is a distributed system consisting of two Laravel projects deployed in separate containers.
-Each project represents an independent instance of a library, allowing users to query the catalog and reserve books for a specific period.
+The "BIBLIObooks" is a distributed system consisting of two Laravel projects deployed in separate containers.\
+Each project represents an independent instance of a library, allowing users to query the catalog and reserve books for a specific period.\
 The communication between the two systems is facilitated through a RESTful API.
 
 [![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-enabled-brightgreen)](https://github.com/features/actions)
