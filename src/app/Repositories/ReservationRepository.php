@@ -9,7 +9,7 @@ class ReservationRepository implements ReservationRepositoryInterface
 {
     public function all()
     {
-        return Reservation::all();
+        return Reservation::paginate(config('paginate.per_page'));
     }
 
     public function create(array $data)

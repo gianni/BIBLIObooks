@@ -9,7 +9,7 @@ class BookRepository implements BookRepositoryInterface
 {
     public function all()
     {
-        return Book::all();
+        return Book::paginate(config('paginate.per_page'));
     }
 
     public function create(array $data)

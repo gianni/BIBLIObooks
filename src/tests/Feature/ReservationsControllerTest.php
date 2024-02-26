@@ -27,10 +27,11 @@ describe('Reservations Controller', function () {
         ]);
 
         $jsonResponse = $this->getJson('/api/reservations')
-            ->assertStatus(200);
+            ->assertStatus(200)
+            ->assertJson(['data' => [],'links' => [],'meta' => []]);
 
         // assert
-        expect($jsonResponse->json())->toHaveCount(1);
+        expect($jsonResponse->json())->toHaveCount(3);
     });
 
     test('a library manager can create a new reservation for a book available in other library', function () {

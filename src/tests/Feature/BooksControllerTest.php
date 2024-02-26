@@ -17,9 +17,10 @@ describe('Books Controller', function () {
         ]);
 
         $jsonResponse = $this->getJson('/api/books')
-            ->assertStatus(200);
+            ->assertStatus(200)
+            ->assertJson(['data' => [],'links' => [],'meta' => []]);
 
-        expect($jsonResponse->json())->toHaveCount(1);
+        expect($jsonResponse->json())->toHaveCount(3);
     });
 
     test('user can get book details', function () {
